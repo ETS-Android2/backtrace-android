@@ -1,7 +1,7 @@
 package backtraceio.library.database;
 
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.junit.After;
 import org.junit.Before;
@@ -28,7 +28,7 @@ public class BacktraceDatabaseRecordWriterTest {
 
     @Before
     public void setUp() {
-        this.dbPath = InstrumentationRegistry.getContext().getFilesDir().getAbsolutePath();
+        this.dbPath = InstrumentationRegistry.getInstrumentation().getContext().getFilesDir().getAbsolutePath();
         this.databaseFileContext = new BacktraceDatabaseFileContext(this.dbPath, 0, 0);
         this.databaseFileContext.clear();
         this.databaseRecordWriter = new BacktraceDatabaseRecordWriter(this.dbPath);
